@@ -1,6 +1,7 @@
 package src.com.Exercise.BankApplication;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Client extends Bank implements Account{
     String name;
@@ -21,6 +22,15 @@ public class Client extends Bank implements Account{
     }
 
     @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Client : \n")
+                .append("Name :").append(name)
+                .append("\nAccounts :\n").append(accounts);
+        return sb.toString();
+    }
+
+    @Override
     public void deposit(double amount) {
 
     }
@@ -28,5 +38,20 @@ public class Client extends Bank implements Account{
     @Override
     public void withdraw(double amount) {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Client client = (Client) o;
+        return Objects.equals(name, client.name) && Objects.equals(accounts, client.accounts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, accounts);
     }
 }
