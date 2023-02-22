@@ -6,10 +6,14 @@ import java.util.Objects;
 
 public class CheckingAccount extends AbstractAccount{
     double overdraft;
-    double getOverdraft(){
-       return 0;
+    private double balance;
+    public void CheckingAccount() {
+        this.balance = getBalance();
     }
+    double getOverdraft(){
 
+        return 0;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -26,19 +30,19 @@ public class CheckingAccount extends AbstractAccount{
     }
 
     @Override
-    public double getBalance() {
-        return balance;
-    }
-
-    @Override
     public void deposit(double amount) {
-
+        balance += amount;
+        this.setBalance(balance);
+        System.out.println("Amount deposited");
     }
 
     @Override
     public void withdraw(double amount) throws NotEnoughFundsException {
         if(amount>balance){
             throw new NotEnoughFundsException("Can't withdraw amount more than your balance");
+        }else{
+            balance -= amount;
+            System.out.println("Amount withdrawn");
         }
     }
 }
