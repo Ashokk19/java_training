@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Client extends Bank implements Account{
     String name;
-    List<Account> accounts;
+    private List<Account> accounts;
     Client(String name){
         this.name = name;
     }
@@ -13,7 +13,7 @@ public class Client extends Bank implements Account{
 
     }
     List<Account> getAccounts(){
-        return null;
+        return accounts;
     }
 
     @Override

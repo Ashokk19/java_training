@@ -11,8 +11,7 @@ public class CheckingAccount extends AbstractAccount{
         this.balance = getBalance();
     }
     double getOverdraft(){
-
-        return 0;
+        return overdraft;
     }
     @Override
     public boolean equals(Object o) {

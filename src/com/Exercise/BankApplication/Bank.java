@@ -10,6 +10,7 @@ public class Bank {
         for( Client c : clients)
             if(c.name.equalsIgnoreCase(client.name))
                 throw new ClientExistException("Client name Already Exists");
+        clients.add(client);
     }
     List<Client> getClients(){
         return clients;
